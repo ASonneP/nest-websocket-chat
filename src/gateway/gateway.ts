@@ -8,7 +8,11 @@ import {
 
 import { Server } from 'socket.io';
 
-@WebSocketGateway()
+@WebSocketGateway({
+  cors: {
+    origin: ['http://localhost:3000'],
+  },
+})
 export class MyGateWay implements OnModuleInit {
   @WebSocketServer()
   server: Server;
